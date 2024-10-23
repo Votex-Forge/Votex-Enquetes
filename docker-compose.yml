@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: nest_backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql://user:user_password@db:3306/enquete
+      - JWT_SECRET=your_jwt_secret_key
+    networks:
+      - enquete_net
+    restart: unless-stopped
+
+  db:
+    image: mysql:8
+    container_name: enquete_db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: enquete
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user_password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - enquete_net
+
+volumes:
+  db_data:
+
+networks:
+  enquete_net:
+    driver: bridge

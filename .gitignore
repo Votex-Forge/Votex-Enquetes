@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs
+*.log
+/logs
+
+# Docker
+.env
+docker-compose.override.yml
+
+# Editor e sistema operacional
+.DS_Store
+.vscode/
+Thumbs.db
+
+#Instruções
+instrucao1.md
