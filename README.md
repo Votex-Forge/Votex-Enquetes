@@ -1,63 +1,110 @@
-# Documentação de Arquitetura do Sistema de Enquetes
+# Votex-Enquetes
 
-## 1. Tecnologias Principais
+Bem-vindo ao **Votex-Enquetes**, um sistema de enquetes desenvolvido como parte de um projeto acadêmico. Este repositório contém o backend do sistema, que permite a criação de enquetes, votação, exibição de resultados e gerenciamento de usuários.
 
-### Backend
-- **Framework**: Nest.js
-- **Ambiente de Execução**: Node.js
-- **Integração com Banco de Dados**: TypeORM (para facilitar a comunicação entre o backend e o banco de dados)
+## Funcionalidades
 
-### Banco de Dados
-- **Banco de Dados**: MySQL
+- **Criação de enquetes**: Permite criar enquetes com múltiplas opções de resposta.
+- **Votação**: Usuários podem votar em suas opções preferidas.
+- **Exibição de resultados**: Exibe resultados em tempo real para as enquetes ativas.
+- **Painel Administrativo**: Acesso para criação e gerenciamento de enquetes e resultados.
+- **Gráficos Gerenciais**: Visualização dos resultados por meio de gráficos.
+- **Notificações**: Sistema de notificações para manter os usuários informados.
 
-### Frontend
-- **Estrutura**: HTML, CSS, JavaScript
-- **Framework CSS**: Bootstrap (para garantir responsividade e acelerar o desenvolvimento)
-- **Integração Frontend-Backend**: O frontend será integrado com o backend via APIs RESTful, fornecidas pelo Nest.js.
+## Tecnologias Utilizadas
 
-### ORM/Query Builder
-- **Ferramenta escolhida**: TypeORM
-- **Funcionalidade**: Gerenciamento de tabelas e consultas no banco de dados de maneira simplificada, com suporte a migrações e esquemas de dados.
+- **Node.js** com **TypeScript**
+- **MySQL** como banco de dados
+- **NestJS** como framework backend
+- **Docker** para containerização
+- **Postman** para testes de API
 
-## 2. Estrutura do Sistema
+## Estrutura do Projeto
 
-### Arquitetura MVC (Model-View-Controller)
-O sistema seguirá a arquitetura MVC, dividida da seguinte forma:
+A estrutura principal do projeto no backend é a seguinte:
 
-- **Models**: Gerenciados pelo TypeORM, conectando as entidades ao banco de dados.
-- **Controllers**: Gerenciam as rotas e recebem as requisições HTTP.
-- **Services**: Responsáveis por processar a lógica de negócios, como autenticação, criação de enquetes e votação.
+```bash
+src/
+├── main.ts                # Arquivo principal
+└── modules/               # Pasta que contém os módulos da aplicação
+    ├── user.controller.ts  # Controlador para gerenciar os usuários
+    ├── user.service.ts     # Serviço com lógica de negócio de usuários
+    └── app.module.ts       # Módulo principal do aplicativo
+```
 
-## 3. Integração Frontend-Backend
-O frontend será responsável por enviar requisições às APIs REST desenvolvidas no backend, que irão lidar com:
+## Pré-requisitos
 
-- **Autenticação**: Cadastro e login de usuários.
-- **Criação e votação em enquetes**: O backend gerenciará a criação e o armazenamento das enquetes e dos votos.
-- **Exibição de Resultados**: O frontend exibirá os resultados das enquetes em gráficos, consumindo os dados do backend.
+Para executar este projeto, você precisará ter o seguinte instalado:
 
-## 4. Decisões de Segurança
+- **Node.js** (versão 16 ou superior)
+- **Docker** (caso deseje utilizar a containerização)
+- **MySQL** (caso não utilize Docker)
+- **Postman** (para testar as rotas da API)
 
-### Autenticação e Controle de Acesso
-- **Armazenamento de Senhas**: As senhas serão armazenadas utilizando hashing seguro (ex.: bcrypt).
-- **Autenticação**: O sistema utilizará JWT (JSON Web Tokens) para autenticação de usuários.
+## Variáveis de Ambiente
 
-### Proteção contra Ataques Comuns
-- **Injeção de SQL**: Uso do TypeORM para proteger contra injeções de SQL.
-- **CSRF/XSS**: Uso das bibliotecas nativas do Nest.js e boas práticas para prevenir ataques CSRF e XSS.
+As configurações sensíveis, como as informações do banco de dados, estão armazenadas no arquivo `.env`. Certifique-se de criar seu próprio arquivo `.env` com as seguintes variáveis:
 
-## 5. Deploy e Hospedagem
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=votex_db
+```
 
-### Ambiente de Hospedagem Escolhido
-- O ambiente de hospedagem será definido entre Heroku, AWS ou DigitalOcean.
+> **Nota**: As informações de acesso ao banco de dados **não** estão expostas diretamente no arquivo `docker-compose.yml`, por questões de segurança. Use o arquivo `.env` para gerenciar essas informações.
 
-### Estrutura do Servidor
-- O deploy será configurado para suportar Node.js e o banco de dados MySQL.
-- **Variáveis de Ambiente**: Chaves secretas e strings de conexão serão configuradas no servidor para garantir segurança.
+## Executando o Projeto
 
-## 6. Checklist Final
-- [x] Descrever as tecnologias usadas para backend e frontend.
-- [x] Explicar a escolha do banco de dados e integração com TypeORM.
-- [x] Detalhar a arquitetura do sistema (MVC).
-- [x] Definir o modelo de integração entre frontend e backend (APIs RESTful).
-- [x] Incluir práticas de segurança e autenticação.
-- [x] Definir o ambiente de deploy e hospedagem.
+### 1. Clone o repositório:
+
+```bash
+git clone https://github.com/Votex-Forge/Votex-Enquetes.git
+cd Votex-Enquetes
+```
+
+### 2. Instale as dependências:
+
+```bash
+npm install
+```
+
+### 3. Execute o projeto (modo desenvolvimento):
+
+```bash
+npm run start:dev
+```
+
+### 4. (Opcional) Execute com Docker:
+
+Caso deseje rodar o projeto em um container Docker, siga os passos abaixo:
+
+1. Certifique-se de que o Docker está instalado e em execução.
+2. Crie o arquivo `.env` conforme descrito acima.
+3. Execute o comando abaixo para subir os containers:
+
+```bash
+docker-compose up
+```
+
+> **Nota**: Este comando irá criar e iniciar os containers necessários para rodar a aplicação e o banco de dados.
+
+## Testando com Postman
+
+Você pode testar as rotas do backend usando o Postman. Certifique-se de importar a coleção do Postman disponível no repositório para facilitar os testes.
+
+- **Coleção do Postman**: Inclui exemplos de requisições para as principais funcionalidades da API, facilitando a validação das funcionalidades.
+
+## Problemas Comuns e Soluções
+
+- **Erro de Conexão com o Banco de Dados**: Verifique se as credenciais do banco estão corretas no arquivo `.env`. Caso esteja usando Docker, garanta que os containers estão em execução.
+- **Portas em Uso**: Certifique-se de que as portas necessárias (por exemplo, 3306 para o MySQL e 3000 para a aplicação) estão livres ou modifique as configurações no arquivo `.env`.
+
+## Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir **issues** ou enviar **pull requests**.
+
+## Licença
+
+Este projeto é licenciado sob a licença [MIT](./LICENSE).
