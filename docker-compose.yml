@@ -8,12 +8,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    environment:
-      - DATABASE_URL=mysql://user:user_password@db:3306/enquete
-      - JWT_SECRET=your_jwt_secret_key
+    env_file:
+      - .env
     networks:
       - enquete_net
-    restart: unless-stopped
+    command: ["sh", "./wait-for.sh", "db", "3306", "npm", "run", "start:prod"]
 
   db:
     image: mysql:8
@@ -21,10 +20,10 @@ services:
     ports:
       - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: enquete
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user_password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - db_data:/var/lib/mysql
     networks:

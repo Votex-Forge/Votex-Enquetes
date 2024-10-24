@@ -16,6 +16,3 @@ docker-compose.override.yml
 .DS_Store
 .vscode/
 Thumbs.db
-
-#Instruções
-instrucao1.md
