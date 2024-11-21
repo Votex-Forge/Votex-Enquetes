@@ -1,18 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { Exclude } from "class-transformer";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Poll } from "./poll.entity";
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ unique: true })
+  @Column()
   username!: string;
+
+  @Column()
+  email!: string;
 
   @Column()
   password!: string;
 
-  @Exclude()
-  @Column()
-  email!: string;
+  @OneToMany(() => Poll, (poll) => poll.creator)
+  polls!: Poll[]; // Relacionamento de um usuário com várias enquetes
 }
+

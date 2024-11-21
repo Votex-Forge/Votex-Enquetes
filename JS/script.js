@@ -1,4 +1,6 @@
 // Define um array para armazenar as enquetes criadas e um objeto para armazenar os votos dos usuários
+import {email} from "user.service.ts";
+
 const polls = [];
 const userVotes = {};
 const maxOptions = 10; // Limite máximo de opções
@@ -41,7 +43,8 @@ function createPoll(event) {
         question,
         options: options.map((option) => ({ text: option, votes: 0 })),
         expiration,
-        active: true
+        active: true,
+        creatorEmail: email
     };
     polls.push(poll);
 

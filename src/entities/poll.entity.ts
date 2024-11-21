@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { User } from "./user.entity"; // Importando a entidade User
 
 @Entity()
 export class Poll {
@@ -8,9 +9,17 @@ export class Poll {
   @Column()
   question!: string;
 
-  @Column("simple-array")
-  options!: string[];
+  @Column("json")
+  options!: { text: string; votes: number }[];
 
   @Column()
   expirationDate!: Date;
+
+  @Column({ default: true }) // Adicionando coluna 'active'
+  active!: boolean;
+
+  @ManyToOne(() => User, user => user.polls)
+  creator!: User;
 }
+
+

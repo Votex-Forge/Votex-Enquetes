@@ -68,6 +68,9 @@ cd Votex-Enquetes
 
 ```bash
 npm install
+npm install nodemailer
+npm install @nestjs/schedule
+
 ```
 
 ### 3. Execute o projeto (modo desenvolvimento):
