@@ -1,69 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criação de Enquete</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="criarenquete.html">Criar Enquete</a></li>
-                        <li class="nav-item"><a class="nav-link" href="resultados.html">Resultados</a></li>
-                        <li class="nav-item"><a class="nav-link" href="paineladmin.html">Painel Admin</a></li>
-                        <li class="nav-item"><a class="nav-link" href="graficos.html">Gráficos</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="criarenquete.html">Criar Enquete</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="resultados.html">Resultados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="paineladmin.html">Painel Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="graficos.html">Gráficos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <section id="createPoll">
-            <h2>Criar Nova Enquete</h2>
-            <form id="pollForm">
-                <label for="question">Pergunta da Enquete:</label>
-                <input type="text" id="question" maxlength="255" required>
+      <section id="createPoll">
+        <h2>Criar Nova Enquete</h2>
+        <form id="pollForm">
+          <label for="question">Pergunta da Enquete:</label>
+          <input type="text" id="question" maxlength="255" required />
 
-                <div id="options">
-                    <label>Opções de Resposta:</label>
-                    <input type="text" class="option" maxlength="50" required>
-                    <input type="text" class="option" maxlength="50" required>
-                </div>
-                <button type="button" id="addOptionButton">Adicionar Opção</button>
-                
-                <label for="expiration">Data de Expiração:</label>
-                <input type="datetime-local" id="expiration" required>
-    
-                <button type="submit">Criar Enquete</button>
-            </form>
-            <p id="creationStatus"></p>
-        </section>
+          <div id="options">
+            <label>Opções de Resposta:</label>
+            <input type="text" class="option" maxlength="50" required />
+            <input type="text" class="option" maxlength="50" required />
+          </div>
+          <button type="button" id="addOptionButton">Adicionar Opção</button>
 
-        <!-- Seção de enquetes ativas -->
-        <section id="activePolls">
-            <h2>Enquetes Ativas</h2>
-            <ul id="pollList"></ul>
-        </section>
+          <label for="expiration">Data de Expiração:</label>
+          <input type="datetime-local" id="expiration" required />
 
-        <!-- Seção de resultados da enquete -->
-        <section id="pollResults" style="display: none;">
-            <h2>Resultados da Enquete</h2>
-            <div id="resultContent"></div>
-        </section>
+          <button type="submit">Criar Enquete</button>
+        </form>
+        <p id="creationStatus"></p>
+      </section>
+
+      <!-- Seção de enquetes ativas -->
+      <section id="activePolls">
+        <h2>Enquetes Ativas</h2>
+        <ul id="pollList"></ul>
+      </section>
+
+      <!-- Seção de resultados da enquete -->
+      <section id="pollResults" style="display: none">
+        <h2>Resultados da Enquete</h2>
+        <div id="resultContent"></div>
+      </section>
     </main>
     <script src="C:\Users\user\OneDrive\Área de Trabalho\Projeto-de-Enquetes-Rafael--main\Projeto-de-Enquetes-Rafael--main\Projeto Enquetes (Rafael)\JS\script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </body>
 </html>

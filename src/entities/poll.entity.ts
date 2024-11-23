@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Vote } from "./vote.enitity";
 
 @Entity()
 export class Poll {
@@ -11,6 +12,9 @@ export class Poll {
   @Column("simple-array")
   options!: string[];
 
-  @Column()
+  @Column({ type: "timestamp" })
   expirationDate!: Date;
+
+  @OneToMany(() => Vote, (vote) => vote.poll, { cascade: true })
+  votes!: Vote[];
 }
