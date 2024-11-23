@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f8; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px; 
+}
+
+header {
+    width: 100%;
+    background: linear-gradient(45deg, #4f86f7, #3a5fdc);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+section {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea,
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #4f86f7;
+    box-shadow: 0px 0px 8px rgba(79, 134, 247, 0.2);
+}
+
+button {
+    background-color: #4f86f7;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3a5fdc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    font-size: 1em;
+}
+
+th {
+    background-color: #f3f4f6;
+    color: #333;
+    font-weight: 600;
+}
+
+td {
+    color: #555;
+}
+
+a {
+    color: #4f86f7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #3a5fdc;
+}
+
+.texto-home {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.8;
+    text-align: left; 
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 900px; 
+}
+
+.texto-home h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.texto-home h3 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #444;
+    margin-top: 30px;
+}
+
+.texto-home p {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 20px;
+    text-align: justify; 
+}
+
+.texto-home ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.texto-home ul li {
+    font-size: 1.2em;
+    margin: 12px 0;
+}
+
+.texto-home ul li span {
+    display: block;
+    margin-top: 5px;
+}
+
+.texto-home a {
+    color: #007bff; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.texto-home a:hover {
+    text-decoration: underline;
+}
+
+
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Seção de enquetes ativas */
+#activePolls {
+    padding: 30px;
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#activePolls h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+#pollList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#pollList li {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+#pollList li:hover {
+    background-color: #d0d7df;
+}
+
+/* Seção de resultados da enquete */
+#pollResults {
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pollResults h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+#resultContent {
+    padding: 10px;
+    background-color: #f1f3f5;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .texto-home {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .texto-home h2 {
+        font-size: 2em;
+    }
+
+    .texto-home h3 {
+        font-size: 1.5em;
+    }
+
+    .texto-home p {
+        font-size: 1.1em;
+    }
+
+    .texto-home ul li {
+        font-size: 1em;
+    }
+}

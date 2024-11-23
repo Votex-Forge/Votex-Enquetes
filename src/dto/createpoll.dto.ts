@@ -1,10 +1,13 @@
-import { IsNotEmpty, MaxLength, IsDateString } from "class-validator";
+import { IsString, IsArray, ArrayMinSize, IsDateString } from "class-validator";
 
 export class CreatePollDto {
-  @IsNotEmpty()
-  @MaxLength(255)
-  question!: string;  // Alterado para uma string simples
+  @IsString()
+  question!: string; 
+
+  @IsArray()
+  @ArrayMinSize(2)
+  options!: string[];
 
   @IsDateString()
-  expirationDate!: Date;
+  expirationDate!: string; 
 }

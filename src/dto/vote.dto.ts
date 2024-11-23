@@ -1,9 +1,8 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsInt, Min } from "class-validator";
 
 export class VoteDto {
   @IsNotEmpty()
-  pollId!: number;
-
-  @IsNotEmpty()
-  selectedOption!: string;
+  @IsInt()
+  @Min(0)
+  optionIndex!: number;
 }
